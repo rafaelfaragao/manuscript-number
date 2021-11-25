@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input id="numerosParaConverter" type="text" name="numerosParaConverter">
+  <button id=botao>Converter</button>
+  <p id=resultado></p>
+
+  <script>
+    
+    document.querySelector("#botao").addEventListener("click", function(){
+      var algarismos = document.querySelector("#numerosParaConverter");
+      
+      if(algarismos.value.length < 4) {
+        
+        var arraySeparado = algarismos.value.split(""); //criando um array de numeros
+
+        const numerosManuscritos = {
+          0: "zero",
+          1: "um",
+          2: "dois",
+          3: "três",
+          4: "quatro",
+          5: "cinco",
+          6: "seis",
+          7: "sete",
+          8: "oito",
+          9: "nove",
+        };
+
+        var arrayManuscrito = []
+        
+        for(let i in arraySeparado) {
+          arrayManuscrito.push(numerosManuscritos[parseInt(arraySeparado[i])]) // criando um array com os nomes dos numeros
+        }
+        document.getElementById("resultado").innerHTML = arrayManuscrito.toString(); 
+        //juntar um array em um unico string porque o inner só aceita string
+        
+      } else {
+        alert("Só digitar até três algarismos")
+      }
+
+    })   
+
+  </script>
+</body>
+
+</html>
